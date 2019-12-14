@@ -38,6 +38,7 @@ function turnClick(event) {
 
 function turn(squareId, player) {
   originalBoard[squareId] = player;
+  console.log(player);
   document.getElementById(squareId).innerText = player;
 
   let gameWon = checkWin(originalBoard, player);
@@ -64,7 +65,7 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
   for (let index of winCombos[gameWon.index]) {
     document.getElementById(index).style.backgroundColor =
-      gameWon.player === player ? "blue" : "red";
+      gameWon.player === player ? "#55efc4" : "#ff7675";
   }
 
   cells.forEach(function(cell, index) {
@@ -84,13 +85,15 @@ function emptySquares() {
 }
 
 function bestSpot() {
-  return Math.floor(Math.random() * emptySquares());
+  const emptyAreas = emptySquares();
+  const index = Math.floor(Math.random() * emptyAreas.length);
+  return emptyAreas[index];
 }
 
 function checkTie() {
   if (emptySquares().length === 0) {
     cells.forEach(function(cell, index) {
-      cell.style.backgroundColor = "green";
+      cell.style.backgroundColor = "#636e72";
       cell.removeEventListener("click", turnClick);
     });
     declareWinner("Tie Game");
