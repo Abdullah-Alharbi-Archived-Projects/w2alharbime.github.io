@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/** this will make the
+ ** page full width
+*/
+html,
+body {
+  height: 100%;
+}
+/* body {
+  background-color: #18dcff;
+} */
+
+:root {
+  --main-font: "Bungee", cursive;
+  --td-font: cursive;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 5px solid #333;
+  height: 100px;
+  width: 100px;
+  font-family: var(--td-font);
+  cursor: pointer;
+  font-size: 3rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* remove extra borders */
+table tr:first-child td {
+  border-top: none;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+table tr td:first-child {
+  border-left: none;
+}
+table tr td:last-child {
+  border-right: none;
+}
+
+/* helpers */
+.flex {
+  display: flex;
+}
+.jcc {
+  justify-content: center;
+}
+.aic {
+  align-items: center;
+}
+.h-100 {
+  height: 100%;
+}
+
+/* end game modal */
+.end-game {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4b4b4bd8;
+  color: #fff;
+  width: 100%;
+  display: none;
+}
+
+.end-game .text {
+  font-size: 3.5rem;
+  text-align: center;
+  font-family: var(--main-font);
+  font-weight: 800;
+}
