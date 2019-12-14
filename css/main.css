@@ -87,6 +87,12 @@ table tr td:last-child {
 .mt-25 {
   margin-top: 25px;
 }
+.none {
+  display: none;
+}
+.red {
+  color: red;
+}
 /* start game */
 .game-starts::before {
   content: "";
@@ -95,7 +101,7 @@ table tr td:last-child {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #44444485;
+  background-color: #444444;
   z-index: 9;
 }
 .game-starts {
@@ -168,10 +174,11 @@ table tr td:last-child {
 }
 
 .end-game .text {
-  font-size: 3.5rem;
-  text-align: center;
+  font-size: 3.5rem !important;
+  text-align: center !important;
   font-family: var(--main-font);
-  font-weight: 800;
+  font-weight: 800 !important;
+  padding: 30px;
 }
 
 .btn {
@@ -189,4 +196,8 @@ table tr td:last-child {
 .btn:hover {
   background-color: #a29bfe;
   color: #fff;
+}
+#current-player {
+  color: #fff;
+  font-family: var(--main-font);
 }

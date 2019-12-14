@@ -1,4 +1,12 @@
 let originalBoard = [];
+let opponent = "";
+let currentPlayer = "X";
+
+const currentPlayerElement = document.getElementById("current-player");
+const gameStarts = document.getElementById("game-starts");
+
+currentPlayerElement.innerHTML = `Current Player: <span class='red'> ${currentPlayer}</span>`;
+const vsWho = "ai";
 const player = "O";
 const AI = "X";
 const winCombos = [
@@ -24,21 +32,38 @@ function startGame() {
     cell.style.removeProperty("background-color");
     cell.addEventListener("click", turnClick);
   });
+
+  gameStarts.style.display = "";
 }
 
 function turnClick(event) {
   if (typeof originalBoard[this.id] === "number") {
-    turn(this.id, player);
+    if (!checkTie() && currentPlayer === "O") {
+      turn(this.id, player);
 
-    if (!checkTie()) {
+      if (opponent === "player2") {
+        currentPlayer = AI;
+        displayCurrentPlayer();
+        return true;
+      }
+    }
+
+    if (!checkTie() && opponent === "ai") {
       turn(bestSpot(), AI);
+      currentPlayer = player;
+      displayCurrentPlayer();
+    }
+
+    if (!checkTie() && currentPlayer === "X" && opponent !== "ai") {
+      turn(this.id, AI);
+      currentPlayer = player;
+      displayCurrentPlayer();
     }
   }
 }
 
 function turn(squareId, player) {
   originalBoard[squareId] = player;
-  console.log(player);
   document.getElementById(squareId).innerText = player;
 
   let gameWon = checkWin(originalBoard, player);
@@ -101,4 +126,20 @@ function checkTie() {
   }
 
   return false;
+}
+
+function playerIdentity(identity) {
+  opponent = identity;
+
+  if (identity === "ai") {
+    currentPlayerElement.style.display = "none";
+  } else {
+    currentPlayerElement.style.display = "block";
+  }
+
+  gameStarts.style.display = "none";
+}
+
+function displayCurrentPlayer() {
+  currentPlayerElement.innerHTML = `Current Player: <span class='red'>${currentPlayer}</span>`;
 }
