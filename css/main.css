@@ -11,9 +11,9 @@ html,
 body {
   height: 100%;
 }
-/* body {
+body {
   background-color: #18dcff;
-} */
+}
 
 :root {
   --main-font: "Bungee", cursive;
@@ -25,7 +25,7 @@ table {
 }
 
 td {
-  border: 5px solid #333;
+  border: 5px solid #fff;
   height: 100px;
   width: 100px;
   font-family: var(--td-font);
@@ -33,6 +33,7 @@ td {
   font-size: 3rem;
   text-align: center;
   vertical-align: middle;
+  color: #fff;
 }
 
 /* remove extra borders */
@@ -62,6 +63,11 @@ table tr td:last-child {
 .h-100 {
   height: 100%;
 }
+.abs-cen {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-80px);
+}
 
 /* end game modal */
 .end-game {
@@ -80,4 +86,21 @@ table tr td:last-child {
   text-align: center;
   font-family: var(--main-font);
   font-weight: 800;
+}
+
+.btn {
+  padding: 8px;
+  width: 150px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 25px;
+  border-radius: 5px;
+  transition: 250ms ease-out;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #a29bfe;
+  color: #fff;
 }
