@@ -13,7 +13,34 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
   </head>
   <body>
-    <button onclick="startGame()">Replay</button>
+    <div class="game-starts flex aic jcc w-100 h-100 abs">
+      <div class="container">
+        <div class="abs notify">
+          <h3>Choose your opponent</h3>
+        </div>
+        <div class="card ai" onclick="playerIdentity('ai')">
+          <div class="flex f-col jcc aic h-100">
+            <img src="images/computer.png" alt="computer" class="w-64" />
+            <br />
+            <span class="text">AI</span>
+          </div>
+        </div>
+        <div class="cn">
+          <h1>VS</h1>
+        </div>
+        <div class="card player" onclick="playerIdentity('player')">
+          <div class="flex f-col jcc aic h-100">
+            <img src="images/player.png" alt="player" class="w-64" />
+            <br />
+            <span class="text">PLAYER</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="abs-cen">
+      <button onclick="startGame()" class="btn">Replay</button>
+    </div>
 
     <!-- make the game board in the middle -->
     <div class="flex jcc aic h-100">
